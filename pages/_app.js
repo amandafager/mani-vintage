@@ -1,7 +1,26 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import Layout from "../components/Layout";
+import sanityClient from "../sanity";
+import App from "next/app";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps, allCategories }) {
+  return (
+    <Layout allCategories={allCategories}>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
-export default MyApp
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+  const allCategories = await sanityClient.fetch(
+    `*[_type == "category"] { _id, title, slug }`
+  );
+
+  let pageProps = {};
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+  return { pageProps, allCategories };
+};
+
+export default MyApp;

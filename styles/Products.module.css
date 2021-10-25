@@ -1,0 +1,9 @@
+.productsPage {
+  width: 100%;
+}
+
+.grid {
+  display: flex;
+  column-gap: 1rem;
+  flex-wrap: wrap;
+}
