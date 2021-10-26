@@ -1,17 +1,35 @@
 import Image from "next/image";
 import styles from "../styles/ProductCard.module.css";
-import { urlFor } from "@utils/api";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-const ProductCard = ({ product, categoryslug }) => {
-  const { title, price, imageUrl, imageAlt, slug } = product;
+const ProductCard = ({ product, pageCategorySlug }) => {
+  const { title, price, imageUrl, imageAlt, slug, categories } = product;
+
+  const router = useRouter();
+  const { categoryslug } = router.query;
+
+  let categorySlugToReturn;
+
+  const foundCatgeorySlug = categories.find(
+    (category) => category.slug !== "all" && category.slug !== "new-arrivals"
+  );
+
+  if (categoryslug === "all" || categoryslug === "new-arrivals") {
+    categorySlugToReturn = foundCatgeorySlug && foundCatgeorySlug.slug;
+  } else {
+    categorySlugToReturn = pageCategorySlug;
+  }
 
   return (
     <div className={styles.card}>
       <Link
         href={{
           pathname: "/[categoryslug]/[slug]",
-          query: { categoryslug: categoryslug, slug: slug },
+          query: {
+            categoryslug: categorySlugToReturn,
+            slug: slug,
+          },
         }}
       >
         <a>

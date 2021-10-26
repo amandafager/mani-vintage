@@ -27,7 +27,7 @@ export default function Products({ productsByCategory }) {
           <ProductCard
             key={product._id}
             product={product}
-            categoryslug={productsByCategory.slug.current}
+            pageCategorySlug={productsByCategory.slug.current}
           />
         ))}
       </Grid>
