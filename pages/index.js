@@ -1,7 +1,45 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import sanityClient from "../lib/sanity.server";
+import { getCategoriesAndAllRelatedProductsQuery } from "../lib/queries";
 
 export default function Home() {
+  /*  console.log(product);
+
+  const result = product.filter(
+    (p) => p.slug.current !== "all" && p.slug.current !== "new-arrivals"
+  );
+  console.log(result);
+
+  const createParamsForAllPaths = product.map((category) => {
+    const paths = category.products.map((product) => {
+      return {
+        params: {
+          categoryslug: category.slug.current,
+          slug: product.slug ? product.slug : "",
+        },
+      };
+    });
+
+    return {
+      paths,
+    };
+  });
+
+  //removeOuterObjectThatWrapsAlLCategoryAndProductsParams
+  const removedOuterObjectThatWrapsAlLCategoryAndProductsParams =
+    createParamsForAllPaths.map((d) => {
+      return Object.assign(d.paths);
+    });
+
+  //merageAllArraysToOneArrayWithObjectForEveryPaths
+  const merge = [].concat.apply(
+    [],
+    removedOuterObjectThatWrapsAlLCategoryAndProductsParams
+  );
+
+  const paths = merge; */
+
   return (
     <>
       <Head>
@@ -12,3 +50,17 @@ export default function Home() {
     </>
   );
 }
+
+/* export async function getStaticProps() {
+  const allCategoriesAndRelatedProducts = await sanityClient.fetch(
+    getCategoriesAndAllRelatedProductsQuery
+  );
+
+  return {
+    props: { product: allCategoriesAndRelatedProducts },
+  };
+} */
+/* const allCategoriesAndRelatedProducts = await sanityClient.fetch(
+  getCategoriesAndAllRelatedProductsQuery
+);
+ */

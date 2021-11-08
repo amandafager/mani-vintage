@@ -3,8 +3,12 @@ import { getApi } from "../utils/api";
 import React, { useEffect, useState } from "react";
 import { getProductCategoriesQuery } from "../lib/queries";
 
+import { useRouter } from "next/router";
+
 const Links = (/* { allCategories } */) => {
   const [allCategories, setAllCategories] = useState([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     (async function () {
@@ -19,7 +23,15 @@ const Links = (/* { allCategories } */) => {
         allCategories?.map((category) => {
           return (
             <Link key={category._id} href={`/${category.slug.current}`}>
-              <a>{category.title}</a>
+              <a
+                className={
+                  router.asPath == `/${category.slug.current}`
+                    ? "activeLink"
+                    : "hej"
+                } /* aria-current='page' */
+              >
+                {category.title}
+              </a>
             </Link>
           );
         })}

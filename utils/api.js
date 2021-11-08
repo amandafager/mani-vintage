@@ -1,4 +1,6 @@
-import sanityClient from "../sanity";
+/* import sanityClient from "../sanity"; */
+
+import { sanityClient } from "../lib/sanity.server";
 
 export function getApi(path) {
   const api = sanityClient

@@ -1,0 +1,218 @@
+.customerRequestPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.heading {
+  margin-bottom: 1.5em;
+}
+
+.form {
+  width: 100%;
+  max-width: 800px;
+  /* border: 1px solid gray;
+  padding: 0 3em; */
+}
+
+.fieldset {
+  padding: 0;
+  position: relative;
+  border: transparent;
+  margin-bottom: 4em;
+}
+
+.legend {
+  font-size: 1.5em;
+  padding-bottom: 1em;
+  font-weight: bold;
+}
+
+.radioFormControl {
+  cursor: pointer;
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0.3em;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 1100px) {
+  .fieldset {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.3rem;
+  }
+
+  .radioFormControl {
+    margin-bottom: 0;
+  }
+}
+
+.radioFormControl input[type="radio"] {
+  appearance: none;
+  cursor: pointer;
+  width: 1.2em;
+  height: 1.2em;
+  border: 0.25em solid rgb(255, 255, 255);
+  box-shadow: 0em 0em 0em 0.1em #0000005d;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  /* transition: background-color 0.3s ease-in-out; */
+  /* transition: box-shadow 0.3s ease-in-out; */
+}
+
+.radioFormControl input[type="radio"]:hover {
+  box-shadow: 0em 0em 0em 0.1em #0000009e;
+}
+
+.radioFormControl input[type="radio"]:focus,
+.radioFormControl input[type="radio"]:active {
+  box-shadow: 0em 0em 0em 0.1em #00000074;
+  background-color: #00000074;
+}
+
+.radioFormControl input[type="radio"]:checked {
+  /*styles inside circle*/
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0em 0em 0em 0.1em #000000;
+}
+
+/*Styles description area*/
+.textareaFormGroup {
+  position: relative;
+  margin-bottom: 3em;
+}
+.descriptionLabel {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  height: fit-content;
+  transition: all 0.3s ease-in;
+  color: gray;
+}
+.hasDescription {
+  background-color: white;
+  top: -0.6em;
+  font-size: 0.95em;
+  padding: 0 0.3em;
+}
+.textarea:focus {
+  outline-color: black;
+}
+
+.textarea:focus + .descriptionLabel {
+  color: black;
+  top: -0.6em;
+  font-size: 0.95em;
+  background-color: white;
+  padding: 0 0.3em;
+}
+
+.textarea {
+  padding: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 8rem;
+  font-size: 1rem;
+  border: 0.1em solid gray;
+  border-radius: 0.1em;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  position: relative;
+}
+.inputField span {
+  position: absolute;
+  top: 2.3em;
+  left: 0;
+  height: fit-content;
+  font-size: 1em;
+  transition: all 0.3s ease-in-out;
+  color: gray;
+  padding: 0 0.6em;
+  font-weight: 400;
+}
+.inputField input[type="number"] {
+  margin-top: 0.5em;
+  width: 6em;
+  height: 2.6em;
+  font-size: 1rem;
+  border: none;
+  border: 0.1em solid gray;
+  border-radius: 0.1em;
+  padding: 0 0.6em;
+}
+.inputField input[type="number"]:focus,
+.inputField input[type="email"]:focus {
+  outline-color: black;
+}
+
+.inputField input[type="number"]:focus:not(:placeholder-shown) + span {
+  padding: 0 0.1em;
+  background-color: white;
+  top: 1.2em;
+  font-size: 0.9rem;
+  left: 0.5em;
+  color: black;
+}
+.inputField input[type="number"]::placeholder {
+  font-weight: 400;
+  font-family: system-ui, sans-serif;
+  opacity: 0;
+}
+.inputField input[type="number"]:not(:placeholder-shown) + span {
+  padding: 0 0.1em;
+  background-color: white;
+  top: 1.2em;
+  font-size: 0.9rem;
+  left: 0.5em;
+}
+
+.emailButtonWrapper {
+  max-width: 30em;
+  width: 100%;
+}
+
+.inputField {
+  position: relative;
+}
+
+.inputField input[type="email"] {
+  margin-top: 0.5em;
+  /*  width: 19em; */
+  width: 100%;
+  height: 2.6em;
+  font-size: 1rem;
+  border: none;
+  border: 0.1em solid gray;
+  border-radius: 0.1em;
+  padding: 0 0.6em;
+}
+
+.requestButton {
+  margin-top: 2em;
+  padding: 1em 2em;
+  width: 100%;
+}
+.errorMessages {
+  position: absolute;
+  bottom: -2.1em;
+  min-height: 2em;
+  width: fit-content;
+  font-size: 0.9em;
+  color: rgb(131, 13, 13);
+}

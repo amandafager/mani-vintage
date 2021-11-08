@@ -1,10 +1,16 @@
 import Link from "next/link";
 import Head from "next/head";
-import sanityClient from "../../sanity";
+/* import sanityClient from "../../sanity"; */
 import ProductCard from "@components/ProductCard";
 import Grid from "@components/Grid";
 import Breadcrumbs from "@components/Breadcrumbs";
 import styles from "../../styles/Products.module.css";
+
+import {
+  getClient,
+  overlayDrafts,
+  sanityClient,
+} from "../../lib/sanity.server";
 
 import {
   getProductCategoriesQuery,
@@ -19,15 +25,20 @@ export default function Products({ productsByCategory }) {
       <Head>
         <title>{productsByCategory.title}</title>
       </Head>
-      <Breadcrumbs />
+      {/*   <Breadcrumbs /> */}
       <h1>{productsByCategory.title}</h1>
+
+      <div className={styles.filter}>
+        <p>Filter + </p>
+        <p>Sort by + </p>
+      </div>
 
       <Grid styles={styles}>
         {products.map((product) => (
           <ProductCard
             key={product._id}
             product={product}
-            pageCategorySlug={productsByCategory.slug.current}
+            /* pageCategorySlug={productsByCategory.slug.current} */
           />
         ))}
       </Grid>
@@ -45,7 +56,24 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context, preview = false) {
+  const categoryslug = context.params.categoryslug;
+  let productsToReturn;
+
+  const productsByCategorySlug = await getClient(preview).fetch(
+    getProductsByCategorySlugQuery,
+    {
+      categoryslug: categoryslug,
+    }
+  );
+
+  productsToReturn = productsByCategorySlug[0];
+
+  return {
+    props: { productsByCategory: productsToReturn, preview },
+  };
+}
+/* export async function getStaticProps(context) {
   const categoryslug = context.params.categoryslug;
   let productsToReturn;
 
@@ -61,4 +89,4 @@ export async function getStaticProps(context) {
   return {
     props: { productsByCategory: productsToReturn },
   };
-}
+} */

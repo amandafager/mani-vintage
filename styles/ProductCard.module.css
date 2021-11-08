@@ -1,11 +1,15 @@
 .card {
-  max-width: 180px;
-  width: 100%;
+  /*  width: 100%; */
 }
 
 .imageWrapper {
-  max-width: 180px;
-  height: 240px;
+  /* max-width: 180px;
+  height: 240px; */
+
+  /*  height: calc(180px * 3 / 4); */
+
+  aspect-ratio: 3 / 4;
+  /*min-height: 240px; */
   position: relative;
 }
 
@@ -13,10 +17,16 @@
   object-fit: cover;
 }
 
+.contentWrapper {
+  position: relative;
+  padding: 0.6rem;
+}
+
 .title {
   font-size: 13px;
   text-align: center;
   font-weight: 500;
+  padding-bottom: 0.3rem;
 }
 
 .price {

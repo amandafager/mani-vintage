@@ -5,13 +5,22 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next build && next export"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.3",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.19.0",
+    "dotenv": "^10.0.0",
     "next": "11.1.2",
+    "next-sanity": "^0.4.0",
+    "next-sanity-image": "^3.1.7",
+    "nodemailer": "^6.7.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.19.0",
+    "react-simple-image-slider": "^2.3.0",
+    "yup": "^0.32.11"
   }
 }

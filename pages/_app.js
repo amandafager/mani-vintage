@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
-import sanityClient from "../sanity";
+import { sanityClient } from "../lib/sanity.server";
 import App from "next/app";
 
 function MyApp({ Component, pageProps, allCategories }) {
