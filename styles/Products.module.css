@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+.h1 {
+  margin-bottom: 1em;
+}
+
 .filter {
   display: flex;
   width: 100%;
@@ -23,5 +27,8 @@
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1500px) {
+  .grid {
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+  }
 }

@@ -26,7 +26,7 @@ const InputField = ({
         onBlur={onBlur}
         {...register(registerLabel, { required })}
       />
-      <span>{placeholder}</span>
+      <span aria-hidden='true'>{placeholder}</span>
       <p className={styles.errorMessages}>{error}</p>
     </label>
   );

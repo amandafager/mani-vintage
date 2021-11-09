@@ -25,13 +25,12 @@ export default function Products({ productsByCategory }) {
       <Head>
         <title>{productsByCategory.title}</title>
       </Head>
-      {/*   <Breadcrumbs /> */}
-      <h1>{productsByCategory.title}</h1>
+      <h1 className={styles.h1}>{productsByCategory.title}</h1>
 
-      <div className={styles.filter}>
+      {/* <div className={styles.filter}>
         <p>Filter + </p>
         <p>Sort by + </p>
-      </div>
+      </div> */}
 
       <Grid styles={styles}>
         {products.map((product) => (

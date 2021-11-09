@@ -10,8 +10,6 @@ import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import React, { useState, useEffect, useRef } from "react";
 
-import SimpleImageSlider from "react-simple-image-slider";
-
 import { useNextSanityImage } from "next-sanity-image";
 
 import { useRouter } from "next/router";
@@ -63,13 +61,6 @@ export default function Product({ productdata, preview }) {
       <p>Size: {size}</p>
       <p>Condition: {condition}</p>
 
-      {/* <SimpleImageSlider
-          width={400}
-          height={600}
-          images={product.imagesGallery}
-          showBullets={true}
-          showNavs={true}
-        /> */}
       {/*  {product.imagesGallery &&
         product.imagesGallery.map((image) => (
           <Image

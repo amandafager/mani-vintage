@@ -27,7 +27,7 @@ const Links = (/* { allCategories } */) => {
                 className={
                   router.asPath == `/${category.slug.current}`
                     ? "activeLink"
-                    : "hej"
+                    : ""
                 } /* aria-current='page' */
               >
                 {category.title}

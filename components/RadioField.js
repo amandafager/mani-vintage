@@ -15,7 +15,7 @@ const RadioField = ({
       <input
         className={`${styles.radioInput}`}
         type='radio'
-        tabIndex='0'
+        /*  tabIndex='0' */
         id={value}
         value={value}
         defaultChecked={checked}

@@ -13,11 +13,11 @@ export default function (req, res) {
   <br>
   <strong>My measurements are:</strong>
   <ul>
-  <li>Bust: ${req.body.bust}</li>
-  <li>Hip: ${req.body.hip}</li>
-  <li>Waist: ${req.body.waist}</li>
-  <li>Arm: ${req.body.arm}</li>
-  <li>Length: ${req.body.length}</li>
+  <li>Bust: ${req.body.bust} cm</li>
+  <li>Hip: ${req.body.hip} cm</li>
+  <li>Waist: ${req.body.waist} cm</li>
+  <li>Arm: ${req.body.arm} cm</li>
+  <li>Length: ${req.body.length} cm</li>
   </ul>
   <div><strong>I need this:</strong> ${req.body.time}</div>
   <p>Sent from: ${req.body.email}</p>

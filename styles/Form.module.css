@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
 }
 
@@ -12,7 +12,7 @@
 
 .form {
   width: 100%;
-  max-width: 800px;
+  /*   max-width: 780px; */
   /* border: 1px solid gray;
   padding: 0 3em; */
 }
@@ -21,7 +21,7 @@
   padding: 0;
   position: relative;
   border: transparent;
-  margin-bottom: 4em;
+  margin-bottom: 2.5em;
 }
 
 .legend {
@@ -33,7 +33,7 @@
 .radioFormControl {
   cursor: pointer;
   font-family: system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   padding: 0.3em;
   width: fit-content;
@@ -42,17 +42,8 @@
   margin-bottom: 1em;
 }
 
-@media (min-width: 1100px) {
-  .fieldset {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2.3rem;
-  }
-
-  .radioFormControl {
-    margin-bottom: 0;
-  }
+.radioFormControl:last-child {
+  margin-bottom: 0em;
 }
 
 .radioFormControl input[type="radio"] {
@@ -64,8 +55,6 @@
   box-shadow: 0em 0em 0em 0.1em #0000005d;
   border-radius: 50%;
   margin-right: 0.5em;
-  /* transition: background-color 0.3s ease-in-out; */
-  /* transition: box-shadow 0.3s ease-in-out; */
 }
 
 .radioFormControl input[type="radio"]:hover {
@@ -90,7 +79,7 @@
 /*Styles description area*/
 .textareaFormGroup {
   position: relative;
-  margin-bottom: 3em;
+  margin-bottom: 2.5em;
 }
 .descriptionLabel {
   position: absolute;
@@ -106,17 +95,22 @@
   font-size: 0.95em;
   padding: 0 0.3em;
 }
+
 .textarea:focus {
   outline-color: black;
 }
 
-.textarea:focus + .descriptionLabel {
+.textarea:focus + .hasDescription {
+  color: black;
+}
+
+/* .textarea:focus + .descriptionLabel {
   color: black;
   top: -0.6em;
   font-size: 0.95em;
   background-color: white;
   padding: 0 0.3em;
-}
+} */
 
 .textarea {
   padding: 1em;
@@ -134,7 +128,13 @@
   flex-direction: column;
   font-weight: 500;
   position: relative;
+  margin-bottom: 2em;
 }
+
+.inputField:last-child {
+  margin-bottom: 0em;
+}
+
 .inputField span {
   position: absolute;
   top: 2.3em;
@@ -148,7 +148,7 @@
 }
 .inputField input[type="number"] {
   margin-top: 0.5em;
-  width: 6em;
+  width: 100%;
   height: 2.6em;
   font-size: 1rem;
   border: none;
@@ -183,7 +183,7 @@
 }
 
 .emailButtonWrapper {
-  max-width: 30em;
+  margin-top: 1em;
   width: 100%;
 }
 
@@ -193,7 +193,6 @@
 
 .inputField input[type="email"] {
   margin-top: 0.5em;
-  /*  width: 19em; */
   width: 100%;
   height: 2.6em;
   font-size: 1rem;
@@ -204,10 +203,16 @@
 }
 
 .requestButton {
-  margin-top: 2em;
-  padding: 1em 2em;
+  font-size: 1em;
+  margin-top: 2.5em;
+  padding: 1em 1.5em;
   width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
+
 .errorMessages {
   position: absolute;
   bottom: -2.1em;
@@ -215,4 +220,109 @@
   width: fit-content;
   font-size: 0.9em;
   color: rgb(131, 13, 13);
+}
+
+@media (min-width: 500px) {
+  .form {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1025px) {
+  .customerRequestPage {
+    align-items: flex-start;
+  }
+
+  .requestButton {
+    margin-top: 4em;
+  }
+  .fieldset,
+  .textareaFormGroup {
+    margin-bottom: 4em;
+  }
+}
+
+@media (min-width: 1100px) {
+  .form {
+    max-width: 780px;
+  }
+
+  .inputField {
+    margin-bottom: 0em;
+  }
+  .inputField input[type="number"] {
+    width: 7em;
+  }
+
+  .emailButtonWrapper {
+    max-width: 20em;
+  }
+
+  .fieldset {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.3rem;
+  }
+
+  .radioFormControl {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1500px) {
+  .customerRequestPage {
+    /* align-items: center; */
+  }
+  /* .form {
+    transform: translateX(-109px);
+  } */
+}
+
+.successBoxWrapper {
+  background-color: #0000003a;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.successBox {
+  width: 80%;
+  padding: 1em;
+  max-width: 700px;
+  height: 100%;
+  max-height: 400px;
+  border: 0.1em solid black;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 0.5s ease-in;
+}
+
+.successBox button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.successBox h4 {
+  padding-bottom: 0.6em;
+  font-size: 1.5em;
 }

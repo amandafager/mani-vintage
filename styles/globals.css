@@ -6,6 +6,8 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   min-height: 100vh;
   overflow: visible;
+
+  font-size: 16px;
   /*   width: 100%; */
 }
 
@@ -19,7 +21,7 @@ a:hover {
 }
 
 .activeLink {
-  color: red;
+  text-decoration: underline;
 }
 
 p {
@@ -38,10 +40,10 @@ p {
 }
  */
 
-.content {
+/* .content {
   max-width: 1500px;
   margin: 0 auto;
-}
+} */
 
 main {
   padding: 1rem;
@@ -50,7 +52,7 @@ main {
 header {
   width: 100%;
   /*  height: 100%; */
-  border-bottom: 1px solid black;
+  /*  border-bottom: 1px solid black; */
   background-color: white;
   z-index: 0;
   overflow: visible;
@@ -149,6 +151,14 @@ header {
 
 .scrollLogo {
   opacity: 0;
+  width: 100%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: -1;
 }
 .fadeInLogo {
   opacity: 1;
@@ -212,6 +222,11 @@ header {
 }
 
 @media (min-width: 1025px) {
+  /* html,
+  body {
+    font-size: 18px;
+  } */
+
   .header {
     position: static;
   }
@@ -231,7 +246,7 @@ header {
     /* height: calc(100% - 170px); */
     /*  width: 250px; */
     transform: translateX(0%);
-    border-right: 1px solid rgb(255, 255, 255);
+    /*     border-right: 1px solid rgb(255, 255, 255); */
   }
   .NavSidebar {
     /* top: 40px; */
@@ -246,6 +261,9 @@ header {
 }
 
 @media (min-width: 1400px) {
+  /* main {
+    margin-left: 0;
+  } */
 }
 
 /*min height 100vh - header and footer height*/
@@ -272,13 +290,14 @@ footer .content {
   /*   height: 100%; */
   /*   min-height: 100vh; */
   height: 100%;
-  max-width: 1400px;
+  /*   max-width: 1400px; */
   width: 100%;
-  margin: 0 auto;
+  /*   margin: 0 auto; */
   position: relative;
 }
+
 @media (max-width: 1025px) {
-  .overflowHidden {
+  .overflowhidden {
     overflow: hidden;
   }
   .overflowVisible {
