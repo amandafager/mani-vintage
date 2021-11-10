@@ -1,0 +1,32 @@
+.block {
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  grid-gap: 1.5em;
+}
+
+.oneImageBlock {
+  width: 100%;
+}
+
+.imageWrapper {
+  aspect-ratio: 3 / 4;
+  position: relative;
+}
+
+.oneImage {
+  aspect-ratio: 3 / 2;
+  position: relative;
+}
+
+.image {
+  object-position: center;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .block {
+    grid-gap: 2.5em;
+  }
+}

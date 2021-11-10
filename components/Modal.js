@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 
 const Modal = ({ styles, title, message }) => {
   const [open, setOpen] = useState(true);

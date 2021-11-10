@@ -5,11 +5,15 @@ const Navbar = ({ allCategories }) => {
   return (
     <nav className='NavSidebar' role='navigation'>
       <CategoryLinks allCategories={allCategories} />
-      <Link href='/about'>
-        <a>About</a>
-      </Link>
+
       <Link href='/looking-for'>
         <a>Looking for?</a>
+      </Link>
+      <Link href='/about-mani'>
+        <a>About mani</a>
+      </Link>
+      <Link href='/mani-store'>
+        <a>Mani store</a>
       </Link>
     </nav>
   );

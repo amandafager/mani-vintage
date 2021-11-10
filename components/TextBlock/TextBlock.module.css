@@ -1,0 +1,15 @@
+.block {
+  /*   margin-bottom: 3em; */
+}
+
+.heading {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 768px) {
+  .body {
+    column-count: 2;
+    column-gap: 2.5em;
+  }
+}

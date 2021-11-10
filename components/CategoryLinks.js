@@ -22,10 +22,13 @@ const Links = (/* { allCategories } */) => {
       {allCategories &&
         allCategories?.map((category) => {
           return (
-            <Link key={category._id} href={`/${category.slug.current}`}>
+            <Link
+              key={category._id}
+              href={`/category/${category.slug.current}`}
+            >
               <a
                 className={
-                  router.asPath == `/${category.slug.current}`
+                  router.asPath == `category/${category.slug.current}`
                     ? "activeLink"
                     : ""
                 } /* aria-current='page' */

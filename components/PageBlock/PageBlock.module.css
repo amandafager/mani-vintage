@@ -1,0 +1,12 @@
+.block {
+  border-bottom: 0.1em solid black;
+  padding-bottom: 3em;
+}
+
+.block:not(:first-of-type) {
+  padding-top: 3em;
+}
+
+.block > *:not(:last-child) {
+  margin-bottom: 3em;
+}

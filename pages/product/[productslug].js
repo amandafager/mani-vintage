@@ -14,20 +14,9 @@ import { useNextSanityImage } from "next-sanity-image";
 
 import { useRouter } from "next/router";
 
-import {
-  getClient,
-  sanityClient,
-  overlayDrafts,
-} from "../../lib/sanity.server";
+import { getClient, sanityClient } from "../../lib/sanity.server";
 
-import {
-  getCategoriesAndAllRelatedProductsQuery,
-  getSingleProductByCategorySlugAndProductSlugQuery,
-  GetAllProducts,
-  GetSingleProduct,
-  GetAllProductsSlugs,
-  GetSingleProductImages,
-} from "lib/queries";
+import { GetAllProductsSlugs, GetSingleProductImages } from "lib/queries";
 
 import { usePreviewSubscription, urlFor, PortableText } from "../../lib/sanity";
 

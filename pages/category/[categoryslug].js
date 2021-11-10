@@ -1,16 +1,11 @@
 import Link from "next/link";
 import Head from "next/head";
-/* import sanityClient from "../../sanity"; */
 import ProductCard from "@components/ProductCard";
 import Grid from "@components/Grid";
 import Breadcrumbs from "@components/Breadcrumbs";
 import styles from "../../styles/Products.module.css";
 
-import {
-  getClient,
-  overlayDrafts,
-  sanityClient,
-} from "../../lib/sanity.server";
+import { getClient, sanityClient } from "../../lib/sanity.server";
 
 import {
   getProductCategoriesQuery,
