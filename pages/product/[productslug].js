@@ -3,7 +3,6 @@ import Head from "next/head";
 import PageWrapper from "@components/PageWrapper";
 import ProductCard from "@components/ProductCard";
 import Grid from "@components/Grid";
-import Breadcrumbs from "@components/Breadcrumbs";
 import BlockContent from "@sanity/block-content-to-react";
 import { serializers } from "../../lib/sanity";
 import Image from "next/image";

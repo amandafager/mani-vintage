@@ -4,7 +4,6 @@ import Layout from "@components/Layout";
 import PageWrapper from "@components/PageWrapper";
 import ProductCard from "@components/ProductCard";
 import Grid from "@components/Grid";
-import Breadcrumbs from "@components/Breadcrumbs";
 import styles from "@styles/Products.module.css";
 
 import { getClient, sanityClient } from "@lib/sanity.server";
