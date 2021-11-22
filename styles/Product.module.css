@@ -1,3 +1,43 @@
 .productPage {
+}
+
+.swiperWrapper {
+  max-width: 500px;
+}
+
+.swiper {
+  max-width: 500px;
+}
+
+.slide {
+}
+
+.productImage {
   width: 100%;
+  margin-bottom: 2em;
+}
+
+.productInfo > * {
+  padding-bottom: 1em;
+}
+
+@media (min-width: 768px) {
+  .productPage {
+    display: flex;
+    width: 100%;
+    gap: 2em;
+  }
+
+  .productImage {
+    max-width: 700px;
+    min-width: 400px;
+    margin-bottom: 0;
+  }
+
+  .productInfo {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1025px) {
 }

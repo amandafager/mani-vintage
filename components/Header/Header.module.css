@@ -1,0 +1,199 @@
+.stickyWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  height: calc(100% - 87.42px);
+  display: flex;
+  justify-content: space-between;
+  bottom: auto;
+}
+
+.sticky {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  height: 55px;
+  z-index: 2;
+}
+
+.sticky .group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.buttonMenu {
+  /*  margin: 1rem; */
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.buttonMenu:after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 40px;
+  height: 40px;
+}
+.buttonMenu:focus,
+.buttonMenu:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+.buttonMenu span {
+  height: 2px;
+  width: 30px;
+  background: black;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+  transform-origin: 1px 0.75px;
+}
+.buttonMenu.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.buttonMenu.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+.buttonMenu.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.lineDecoration {
+  border-bottom: 1px solid black;
+}
+
+.siteLogoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 5px 0;
+  /* border-bottom: 1px solid black; */
+}
+.siteLogo {
+  width: 90px;
+}
+.scrollLogo {
+  opacity: 0;
+  width: 100%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: -1;
+}
+.fadeInLogo {
+  opacity: 1;
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.6s;
+}
+.fadeOut {
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: ease-out;
+  transition-duration: 0.3s;
+}
+.scrollsiteLogo {
+  width: 70px;
+}
+
+.navSidebarWrapper {
+  margin-top: 55px;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease-in-out;
+  height: calc(100% - 55px);
+}
+
+a.cartIcon {
+  display: flex;
+  align-items: center;
+  text-decoration: unset;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .stickyWrapper {
+    bottom: 0;
+    height: calc(100% - 160.72px);
+  }
+
+  .siteLogoWrapper {
+    padding: 40px 0 20px 0;
+  }
+  .siteLogo {
+    width: 150px;
+  }
+
+  .navSidebarWrapper {
+    /*  height: calc(100% - 130px); */
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .header {
+    /*  position: static; */
+  }
+
+  .sticky {
+    padding: 0 4rem;
+  }
+  .stickyWrapper {
+    height: calc(100% - 192.63px);
+  }
+
+  .siteLogo {
+    width: 200px;
+  }
+
+  .buttonMenu {
+    display: none;
+  }
+
+  .navSidebarWrapper {
+    transform: translateX(0%);
+  }
+
+  .lineDecoration {
+    margin: 0 2em;
+  }
+}
+
+@media (max-width: 1025px) {
+  /*   .overflowhidden {
+    overflow: hidden;
+  }
+  .overflowVisible {
+    overflow: visible;
+  }
+ */
+  .navBarOpen {
+    transform: translateX(0%);
+    width: 70%;
+  }
+}

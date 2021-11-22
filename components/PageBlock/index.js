@@ -3,7 +3,7 @@ import TextBlock from "@components/TextBlock";
 import ImageBlock from "@components/ImageBlock";
 
 const PageBlock = ({ content }) => {
-  const c = content.body.map((blockContent, i) => {
+  const c = content.body?.map((blockContent, i) => {
     let el = null;
     switch (blockContent._type) {
       case "textBlock":

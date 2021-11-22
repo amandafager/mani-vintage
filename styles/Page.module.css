@@ -1,8 +1,12 @@
-.page {
+.content {
+  max-width: 1000px;
   width: 100%;
 }
 
-.content {
-  max-width: 900px;
-  /* margin: 0 auto; */
+@media (min-width: 1550px) {
+  div.center {
+    margin-left: 0;
+    padding: 1rem 4rem;
+    align-items: center;
+  }
 }

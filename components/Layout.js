@@ -1,9 +1,8 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import Links from "./CategoryLinks";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
-const Layout = ({ children, allCategories }) => {
+const Layout = ({ children, pageProps: { navigation, ...pageProps } }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const handleToggle = () => {
@@ -16,21 +15,30 @@ const Layout = ({ children, allCategories }) => {
 
   useEffect(() => {
     if (navbarOpen) {
+      //document.body.style.overflow = "hidden";
       document.body.classList.add("overflowHidden");
     } else {
+      //document.body.style.overflow = "unset";
       document.body.classList.remove("overflowHidden");
     }
   }, [navbarOpen]);
 
+  const collectionMeny = navigation.find(
+    (item) => item.navId === "collection-menu"
+  );
+  const mainMeny = navigation.find((item) => item.navId === "main-menu");
+  const footerMeny = navigation.find((item) => item.navId === "footer-menu");
+
   return (
     <div className={`layoutContainer`} onClick={closeMenu}>
       <Header
-        allCategories={allCategories}
+        collectionMeny={collectionMeny}
+        mainMeny={mainMeny}
         navbarOpen={navbarOpen}
         handleToggle={handleToggle}
       />
       <main>{children}</main>
-      <Footer />
+      <Footer footerMeny={footerMeny} />
     </div>
   );
 };

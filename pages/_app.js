@@ -1,26 +1,20 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
-import { sanityClient } from "../lib/sanity.server";
-import App from "next/app";
+import Cart from "@components/Cart";
 
-function MyApp({ Component, pageProps, allCategories }) {
+import Head from "next/head";
+
+function MyApp({ Component, pageProps }) {
   return (
-    <Layout allCategories={allCategories}>
-      <Component {...pageProps} />
-    </Layout>
+    <Cart>
+      <Layout pageProps={pageProps}>
+        <Head>
+          <meta name='robots' content='noindex' />
+        </Head>
+        <Component {...pageProps} />
+      </Layout>
+    </Cart>
   );
 }
-
-MyApp.getInitialProps = async ({ Component, ctx }) => {
-  const allCategories = await sanityClient.fetch(
-    `*[_type == "category"] { _id, title, slug }`
-  );
-
-  let pageProps = {};
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx);
-  }
-  return { pageProps, allCategories };
-};
 
 export default MyApp;

@@ -7,9 +7,21 @@
   margin-bottom: 1em;
 }
 
+.body > *:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+/* .body p:empty {
+  display: none;
+} */
+
 @media (min-width: 768px) {
   .body {
     column-count: 2;
     column-gap: 2.5em;
+  }
+
+  .body > *:not(:last-child) {
+    /* margin-bottom: 0em; */
   }
 }

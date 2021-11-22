@@ -1,20 +1,15 @@
-.customerRequestPage {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+.intro {
+  margin-bottom: 2.5em;
+  padding-bottom: 0.8em;
+  border-bottom: 1px solid black;
 }
 
 .heading {
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .form {
   width: 100%;
-  /*   max-width: 780px; */
-  /* border: 1px solid gray;
-  padding: 0 3em; */
 }
 
 .fieldset {
@@ -182,9 +177,13 @@
   left: 0.5em;
 }
 
-.emailButtonWrapper {
-  margin-top: 1em;
+.emailWrapper {
   width: 100%;
+  margin-bottom: 2.5em;
+}
+
+.emailHeading {
+  padding-bottom: 1em;
 }
 
 .inputField {
@@ -202,17 +201,6 @@
   padding: 0 0.6em;
 }
 
-.requestButton {
-  font-size: 1em;
-  margin-top: 2.5em;
-  padding: 1em 1.5em;
-  width: 100%;
-  background-color: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
 .errorMessages {
   position: absolute;
   bottom: -2.1em;
@@ -222,34 +210,24 @@
   color: rgb(131, 13, 13);
 }
 
-@media (min-width: 500px) {
-  .form {
-    max-width: 500px;
-  }
-}
-
 @media (min-width: 768px) {
+  .form {
+    max-width: 780px;
+  }
 }
 
 @media (min-width: 1025px) {
-  .requestButton {
-    margin-top: 4em;
-  }
   .fieldset,
-  .textareaFormGroup {
-    margin-bottom: 4em;
+  .textareaFormGroup,
+  .emailWrapper,
+  .intro {
+    margin-bottom: 3.5em;
   }
 }
 
-@media (min-width: 1100px) {
-  /* .customerRequestPage {
-    position: static;
-    align-items: center;
-  } */
-
+@media (min-width: 1150px) {
   .form {
     max-width: 780px;
-    /*  max-width: 600px; */
   }
 
   .inputField {
@@ -259,7 +237,7 @@
     width: 7em;
   }
 
-  .emailButtonWrapper {
+  .emailWrapper {
     max-width: 20em;
   }
 
@@ -273,14 +251,6 @@
   .radioFormControl {
     margin-bottom: 0;
   }
-}
-
-@media (min-width: 1300px) {
-  /*  .customerRequestPage {
-    position: absolute;
-    left: 0;
-    right: 0;
-  } */
 }
 
 .successBoxWrapper {
@@ -326,4 +296,16 @@
 .successBox h4 {
   padding-bottom: 0.6em;
   font-size: 1.5em;
+}
+
+div.center {
+  align-items: center;
+}
+
+@media (min-width: 1300px) {
+  div.center {
+    margin-left: 0;
+    padding: 1rem 4rem;
+    justify-content: center;
+  }
 }

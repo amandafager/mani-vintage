@@ -1,6 +1,10 @@
 .block {
-  border-bottom: 0.1em solid black;
   padding-bottom: 3em;
+  width: 100%;
+}
+
+.block:not(:last-of-type) {
+  border-bottom: 0.1em solid black;
 }
 
 .block:not(:first-of-type) {

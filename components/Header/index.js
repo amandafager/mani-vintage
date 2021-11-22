@@ -1,10 +1,14 @@
-import Navbar from "./Navbar";
+import Navbar from "@components/Navbar";
 import Link from "next/link";
+import Image from "next/image";
+import styles from "./Header.module.css";
 import React, { useState, useEffect, useRef } from "react";
+import { useShoppingCart } from "use-shopping-cart";
 
-const Header = ({ allCategories, handleToggle, navbarOpen }) => {
+const Header = ({ handleToggle, navbarOpen, mainMeny, collectionMeny }) => {
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { cartCount } = useShoppingCart();
 
   const callbackFunction = (entries) => {
     const [entry] = entries;
@@ -27,19 +31,23 @@ const Header = ({ allCategories, handleToggle, navbarOpen }) => {
   }, [containerRef, options]);
 
   return (
-    <header className='header'>
-      <div className='siteLogoWrapper' ref={containerRef}>
+    <header className={styles.header}>
+      <div className={styles.siteLogoWrapper} ref={containerRef}>
         <Link href='/'>
           <a aria-label='Mani Vintage'>
-            <img className='siteLogo' src='/MANI-logotype.png' />
+            <img className={styles.siteLogo} src='/MANI-logotype.png' />
           </a>
         </Link>
       </div>
-      <div className={`sticky-wrapper`}>
-        <div className='sticky'>
-          <div className='group'>
+      <div className={styles.lineDecoration}></div>
+
+      <div className={styles.stickyWrapper}>
+        <div className={styles.sticky}>
+          <div className={styles.group}>
             <button
-              className={`button-menu ${navbarOpen ? "open" : ""}`}
+              className={`${styles.buttonMenu} ${
+                navbarOpen ? styles.open : ""
+              }`}
               aria-label='Mobile Navigation Button'
               aria-haspopup='true'
               aria-expanded={`${navbarOpen ? "true" : "false"}`}
@@ -49,29 +57,38 @@ const Header = ({ allCategories, handleToggle, navbarOpen }) => {
               <span></span>
               <span></span>
             </button>
-            <div>Search</div>
           </div>
-          <div className={`scrollLogo ${isVisible ? "fadeOut" : "fadeInLogo"}`}>
+          <div
+            className={`${styles.scrollLogo} ${
+              isVisible ? styles.fadeOut : styles.fadeInLogo
+            }`}
+          >
             <Link href='/'>
               <a>
                 <img
-                  className='ScrollsiteLogo'
+                  className={styles.scrollsiteLogo}
                   src='/MANI-logotype-scroll.png'
                 />
               </a>
             </Link>
           </div>
-          <div className='group'>
-            <div>Love</div>
-            <div>Cart</div>
+          <div className={styles.group}>
+            <Link href='/cart'>
+              <a className={styles.cartIcon}>
+                <Image src='/bag.svg' height={28} width={28} />
+                <span>({cartCount})</span>
+              </a>
+            </Link>
           </div>
         </div>
 
         <div
-          className={`NavSidebarWrapper ${navbarOpen ? "NavBarOpen" : ""}`}
+          className={`${styles.navSidebarWrapper} ${
+            navbarOpen ? styles.navBarOpen : ""
+          }`}
           onClick={handleToggle}
         >
-          <Navbar allCategories={allCategories} />
+          <Navbar mainMeny={mainMeny} collectionMeny={collectionMeny} />
         </div>
       </div>
     </header>

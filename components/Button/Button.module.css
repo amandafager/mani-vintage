@@ -1,0 +1,11 @@
+.button {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+  letter-spacing: 0.02em;
+  padding: 0.7em 1.5em;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
