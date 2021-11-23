@@ -35,10 +35,10 @@ const Footer = ({ footerMeny }) => {
             href='https://www.facebook.com/pages/category/Vintage-Store/MANI-193061684078267/'
             target='_blank'
           >
-            <Image src='/facebook.svg' height={18} width={10} />
+            {/* <Image src='/facebook.svg' height={18} width={10} /> */}
           </a>
           <a href='https://www.instagram.com/mani_vintage/' target='_blank'>
-            <Image src='/instagram.svg' height={18} width={18} />
+            {/*  <Image src='/instagram.svg' height={18} width={18} /> */}
           </a>
         </div>
 

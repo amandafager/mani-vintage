@@ -75,7 +75,7 @@ const Header = ({ handleToggle, navbarOpen, mainMeny, collectionMeny }) => {
           <div className={styles.group}>
             <Link href='/cart'>
               <a className={styles.cartIcon}>
-                <Image src='/bag.svg' height={28} width={28} />
+                {/* <Image src='/bag.svg' height={28} width={28} /> */}
                 <span>({cartCount})</span>
               </a>
             </Link>

@@ -98,7 +98,7 @@ export default function Product({ productdata, preview, productCheckoutData }) {
 
       <article className={styles.productPage}>
         <section className={styles.productImage}>
-          <ProductImage url={mainImage.url} alt={mainImage.alt} name={name} />
+          {/*  <ProductImage url={mainImage.url} alt={mainImage.alt} name={name} /> */}
         </section>
 
         <section className={styles.productInfo}>
