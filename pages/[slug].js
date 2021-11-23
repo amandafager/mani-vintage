@@ -17,6 +17,8 @@ import {
 } from "@lib/queries";
 
 export default function About({ page }) {
+  console.log(page);
+
   const content = (page.pageBuilder || [])
     .filter((blockContent) => !blockContent.disabled)
     .map((blockContent, i) => {

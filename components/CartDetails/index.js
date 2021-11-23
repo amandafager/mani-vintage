@@ -1,6 +1,7 @@
 import styles from "./CartDetails.module.css";
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
+import ProductImage from "@components/ProductImage";
 
 const CartDetails = () => {
   const { removeItem, cartDetails } = useShoppingCart();
@@ -11,13 +12,19 @@ const CartDetails = () => {
     entries.push(
       <article key={entry.id} className={styles.product}>
         <div className={styles.imageWrapper}>
-          <Image
+          <ProductImage
+            url={entry.image}
+            sizes='20vw'
+            alt={entry.name}
+            name={entry.name}
+          />
+          {/*  <Image
             className={styles.image}
             src={entry.image}
             layout='fill'
             sizes='20vw'
             alt={entry.name}
-          />
+          /> */}
         </div>
         <section className={styles.productInfo}>
           <p>{entry.name}</p>

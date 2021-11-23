@@ -7,15 +7,15 @@
 }
 
 .imageWrapper {
-  aspect-ratio: 3 / 4;
+  /*  aspect-ratio: 3 / 4; */
   width: 100%;
   max-width: 200px;
   height: 100%;
   position: relative;
 }
-.image {
+/* .image {
   object-fit: cover;
-}
+} */
 
 .productInfo {
   position: relative;

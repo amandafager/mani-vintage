@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./ProductCard.module.css";
 import Link from "next/link";
 import * as React from "react";
+import ProductImage from "@components/ProductImage";
 
 import { useNextSanityImage } from "next-sanity-image";
 import sanityClient from "../../sanity";
@@ -25,25 +26,28 @@ const ProductCard = ({ product }) => {
         passHref
       >
         <a>
-          <div className={styles.imageWrapper}>
-            <Image
+          {/* <div className={styles.imageWrapper}> */}
+          <ProductImage
+            url={image}
+            name={name}
+            sizes='(max-width: 500px) 100vw, 500px'
+          />
+          {/*  <Image
               className={styles.image}
               {...imageProps}
-              /* src={imageProps.src} */
+              src={imageProps.src}
               loader={imageProps.loader}
               layout='responsive'
               sizes='(max-width: 500px) 100vw, 500px'
-              /*     sizes='(max-width: 500px) 100vw, 500px' */
-              /*   className={styles.image} */
-            />
-            {/*   <Image
+            /> */}
+          {/*   <Image
               className={styles.image}
               src={imageUrl}
               layout='fill'
               sizes='50vw'
               alt={imageAlt ? imageAlt : name}
             /> */}
-          </div>
+          {/* </div> */}
           <div className={styles.contentWrapper}>
             <h3 className={styles.title}>{name}</h3>
             <p className={styles.price}>

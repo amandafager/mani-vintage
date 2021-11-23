@@ -1,9 +1,16 @@
 import Image from "next/image";
 import styles from "./ImageBlock.module.css";
 import React, { useState } from "react";
+import { useNextSanityImage } from "next-sanity-image";
+import sanityClient from "../../sanity";
 
 const ImageBlocks = ({ images }) => {
   let imagesCount = images.length;
+
+  console.log(images);
+
+  // const imageProps = useNextSanityImage(sanityClient, url);
+  //{...useNextSanityImage(sanityClient, image)}
 
   return (
     <div className={`${imagesCount > 1 ? styles.block : styles.oneImageBlock}`}>
@@ -17,7 +24,7 @@ const ImageBlocks = ({ images }) => {
           >
             <Image
               className={styles.image}
-              src={image.url}
+              src={{ ...useNextSanityImage(sanityClient, image) }}
               layout='fill'
               sizes='50vw'
             />

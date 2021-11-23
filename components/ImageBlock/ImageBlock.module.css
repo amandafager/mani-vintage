@@ -2,7 +2,7 @@
   width: 100%;
   height: fit-content;
   display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  grid-template-columns: repeat(1, minmax(100px, 1fr));
   grid-gap: 1.5em;
 }
 
@@ -20,6 +20,34 @@
   position: relative;
 }
 
+@supports not (aspect-ratio: 3 / 4) {
+  .imageWrapper::before {
+    float: left;
+    padding-top: 133%;
+    content: "";
+  }
+
+  .imageWrapper::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@supports not (aspect-ratio: 3 / 2) {
+  .oneImage::before {
+    float: left;
+    padding-top: 75%;
+    content: "";
+  }
+
+  .oneImage::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
 .image {
   object-position: center;
   object-fit: cover;
@@ -28,5 +56,6 @@
 @media (min-width: 768px) {
   .block {
     grid-gap: 2.5em;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
   }
 }

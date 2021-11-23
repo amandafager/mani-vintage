@@ -95,10 +95,14 @@ export default function Product({ productdata, preview, productCheckoutData }) {
       <Head>
         <title>{name}</title>
       </Head>
-
       <article className={styles.productPage}>
         <section className={styles.productImage}>
-          {/*  <ProductImage url={mainImage.url} alt={mainImage.alt} name={name} /> */}
+          <ProductImage
+            url={mainImage.url}
+            alt={mainImage.alt}
+            name={name}
+            sizes={"(max-width: 500px) 100vw, 500px"}
+          />
         </section>
 
         <section className={styles.productInfo}>
