@@ -66,5 +66,6 @@ export async function getStaticProps(context, preview = false) {
       categories,
       navigation,
     },
+    revalidate: 60,
   };
 }

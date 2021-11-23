@@ -76,7 +76,16 @@ export default function Product({ productdata, preview, productCheckoutData }) {
     }
   });
 
-  const { name, price, description, size, condition, mainImage } = product;
+  const {
+    name,
+    price,
+    description,
+    size,
+    condition,
+    mainImage,
+    material,
+    color,
+  } = product;
 
   const handleAddToCart = async (event) => {
     event.preventDefault();
@@ -107,19 +116,44 @@ export default function Product({ productdata, preview, productCheckoutData }) {
 
         <section className={styles.productInfo}>
           <h1>{name}</h1>
-          <p>
-            <span>
-              {formatCurrencyString({
-                value: price,
-                currency: "SEK",
-                language: "se-SV",
-              })}
-            </span>
+          <p className={styles.price}>
+            {formatCurrencyString({
+              value: price,
+              currency: "SEK",
+              language: "se-SV",
+            })}
           </p>
+
           {description && (
-            <BlockContent blocks={description} {...sanityClient.config()} />
+            <BlockContent
+              blocks={description}
+              {...sanityClient.config()}
+              className={styles.description}
+            />
           )}
-          <p>Size: {size}</p>
+
+          {size && (
+            <BlockContent
+              blocks={size}
+              {...sanityClient.config()}
+              className={styles.size}
+            />
+          )}
+
+          <p className={styles.detail}>
+            Material:
+            {material &&
+              material.map((item, index) => (
+                <span key={index}>{item.material}</span>
+              ))}
+          </p>
+
+          <p className={styles.detail}>
+            Color:
+            {color &&
+              color.map((item, index) => <span key={index}>{item.color}</span>)}
+          </p>
+
           <p>Condition: {condition}</p>
 
           <Button
@@ -127,7 +161,7 @@ export default function Product({ productdata, preview, productCheckoutData }) {
             onClick={(e) => handleAddToCart(e)}
             disabled={notInStock}
           />
-          <p>{addedToCart && "Product added to cart"}</p>
+          <p>{addedToCart && "Product is added to cart"}</p>
         </section>
       </article>
 
@@ -215,5 +249,6 @@ export async function getStaticProps(context, preview = false) {
       categories,
       navigation,
     },
+    revalidate: 60,
   };
 }

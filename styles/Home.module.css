@@ -6,23 +6,25 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1.2em;
-  margin-bottom: 1em;
+  margin-bottom: 1.2em;
 }
 
 .imageWrapper {
   position: relative;
-
   aspect-ratio: 16 / 9;
 }
 
 .image {
   object-fit: cover;
-  width: 100%;
+  object-position: left;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
   .imagesGallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .imageWrapper {
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -30,6 +32,20 @@
   .imageWrapper::before {
     float: left;
     padding-top: 56.25%;
+    content: "";
+  }
+
+  .imageWrapper::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@supports not (aspect-ratio: 4 / 3) {
+  .imageWrapper::before {
+    float: left;
+    padding-top: 75%;
     content: "";
   }
 

@@ -17,8 +17,50 @@
   margin-bottom: 2em;
 }
 
-.productInfo > * {
-  margin-bottom: 1em;
+.productInfo {
+  margin-top: 1rem;
+}
+
+.productInfo > *:not(:first-child) {
+  margin-bottom: 0.8em;
+}
+
+.detail span:not(:first-of-type):before {
+  content: "/";
+}
+
+.detail span:first-child {
+  padding-left: 0.3em;
+}
+
+.detail span:before {
+  padding: 0 0.3em;
+}
+
+.detail span::after {
+  padding: 0 0.3em;
+}
+
+.productInfo h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+
+.price {
+  font-weight: 500;
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5em;
+}
+
+.size > * {
+  margin-bottom: 0.8em;
+}
+.size ul {
+  list-style: circle;
+}
+.size ul li {
+  padding-bottom: 0.4em;
 }
 
 @media (min-width: 768px) {
