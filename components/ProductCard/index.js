@@ -28,8 +28,10 @@ const ProductCard = ({ product }) => {
           <div className={styles.imageWrapper}>
             <Image
               {...imageProps}
-              layout='fill'
-              /*   layout='responsive' */
+              /* layout='fill' */
+              layout='responsive'
+              width={400}
+              height={500}
               sizes='50vw'
               /*     sizes='(max-width: 500px) 100vw, 500px' */
               /*   className={styles.image} */
