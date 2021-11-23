@@ -1,15 +1,9 @@
-.productPage {
-}
-
 .swiperWrapper {
   max-width: 500px;
 }
 
 .swiper {
   max-width: 500px;
-}
-
-.slide {
 }
 
 .productImage {
@@ -42,8 +36,8 @@
 }
 
 .productInfo h1 {
+  font-weight: 500;
   font-size: 1.7rem;
-  font-weight: 600;
   margin-bottom: 0.4em;
 }
 

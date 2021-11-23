@@ -6,6 +6,8 @@
 
 .heading {
   margin-bottom: 0.5em;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 .form {
@@ -20,9 +22,9 @@
 }
 
 .legend {
-  font-size: 1.5em;
+  font-size: 1.3rem;
   padding-bottom: 1em;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .radioFormControl {
@@ -98,14 +100,6 @@
 .textarea:focus + .hasDescription {
   color: black;
 }
-
-/* .textarea:focus + .descriptionLabel {
-  color: black;
-  top: -0.6em;
-  font-size: 0.95em;
-  background-color: white;
-  padding: 0 0.3em;
-} */
 
 .textarea {
   padding: 1em;
@@ -184,6 +178,8 @@
 
 .emailHeading {
   padding-bottom: 1em;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .inputField {
