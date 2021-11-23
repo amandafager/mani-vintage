@@ -7,11 +7,6 @@ import sanityClient from "../../sanity";
 const ImageBlocks = ({ images }) => {
   let imagesCount = images.length;
 
-  console.log(images);
-
-  // const imageProps = useNextSanityImage(sanityClient, url);
-  //{...useNextSanityImage(sanityClient, image)}
-
   return (
     <div className={`${imagesCount > 1 ? styles.block : styles.oneImageBlock}`}>
       {images &&

@@ -24,7 +24,7 @@ export default function Products({ productsByCategory }) {
       </Head>
       <h1 className={styles.h1}>{productsByCategory.title}</h1>
 
-      <Grid styles={styles}>
+      <Grid>
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}

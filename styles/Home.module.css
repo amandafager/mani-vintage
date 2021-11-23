@@ -1,3 +1,41 @@
-.homePage {
+.landingPage {
+  height: 100%;
+}
+
+.imagesGallery {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.2em;
+  margin-bottom: 1em;
+}
+
+.imageWrapper {
   position: relative;
+
+  aspect-ratio: 16 / 9;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .imagesGallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@supports not (aspect-ratio: 16 / 9) {
+  .imageWrapper::before {
+    float: left;
+    padding-top: 56.25%;
+    content: "";
+  }
+
+  .imageWrapper::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
 }
