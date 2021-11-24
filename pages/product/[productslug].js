@@ -61,8 +61,6 @@ export default function Product({ productdata, preview, productCheckoutData }) {
     enabled: preview || router.query.preview !== null,
   });
 
-  console.log(product);
-
   useEffect(() => {
     for (const id in cartDetails) {
       const entry = cartDetails[id];

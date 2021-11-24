@@ -6,6 +6,8 @@ import { fetchGetJSON } from "../utils/apiHelpers";
 import { useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 import PageWrapper from "@components/PageWrapper";
+import { sanityClient } from "@lib/sanity.server";
+import { getNavigation } from "@lib/queries";
 
 export default function ResultPage() {
   const { clearCart, cartDetails } = useShoppingCart();
@@ -23,7 +25,7 @@ export default function ResultPage() {
 
   console.log(data?.line_items.data[0].price.product.metadata.id);
   //console.log(data?.line_items);
-  //useEffect(() => clearCart(), [clearCart]);
+  useEffect(() => clearCart(), [clearCart]);
 
   if (error) {
     return <div>failed to load</div>;
@@ -34,12 +36,6 @@ export default function ResultPage() {
       <div className='page-container'>
         Congrats
         <h1>Checkout Payment Result</h1>
-        <p>
-          With the data below, you can display a custom confirmation message to
-          your customer.
-        </p>
-        <p>For example:</p>
-        <hr />
         <h3>
           Thank you, {data?.payment_intent.charges.data[0].billing_details.name}
           .
@@ -50,12 +46,19 @@ export default function ResultPage() {
         </p>
         <hr />
         <h2>Status: {data?.payment_intent?.status ?? "loading..."}</h2>
-        <h3>CheckoutSession response:</h3>
-        <PrintObject content={data ?? "loading..."} />
-        <Link href='/'>
-          <a>Back home</a>
-        </Link>
+        {/*  <h3>CheckoutSession response:</h3>
+        <PrintObject content={data ?? "loading..."} /> */}
       </div>
     </PageWrapper>
   );
+}
+
+export async function getStaticProps() {
+  const navigation = await sanityClient.fetch(getNavigation);
+
+  return {
+    props: {
+      navigation,
+    },
+  };
 }

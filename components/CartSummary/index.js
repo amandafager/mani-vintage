@@ -37,13 +37,10 @@ const CartSummary = () => {
 
     if (response.validQuantity) {
       setLoading(false);
-      console.log(response.validQuantity);
       for (const id in cartDetails) {
         setItemQuantity(id, response.validQuantity);
       }
     }
-
-    console.log(response);
 
     if (response.statusCode === 500) {
       console.error(response.message);

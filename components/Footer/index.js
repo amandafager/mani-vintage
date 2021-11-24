@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = ({ footerMeny }) => {
   const { navItems } = footerMeny;
-  console.log(navItems);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.lineDecoration}></div>

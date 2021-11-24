@@ -96,7 +96,7 @@ export default function Form() {
           <p>Welcome to send us your special request.</p>
         </div>
         <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>I'm searching for a</legend>
+          <legend className={styles.legend}>I'm searching for</legend>
           {categories.map((categoryOption, index) => (
             <RadioField
               key={index}
