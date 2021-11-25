@@ -1,19 +1,16 @@
 .landingPage {
   height: 100%;
 }
-
 .imagesGallery {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1.2em;
   margin-bottom: 1.2em;
 }
-
 .imageWrapper {
   position: relative;
   aspect-ratio: 16 / 9;
 }
-
 .image {
   object-fit: cover;
   object-position: left;
@@ -34,7 +31,6 @@
     padding-top: 56.25%;
     content: "";
   }
-
   .imageWrapper::after {
     display: block;
     content: "";
@@ -48,7 +44,6 @@
     padding-top: 75%;
     content: "";
   }
-
   .imageWrapper::after {
     display: block;
     content: "";

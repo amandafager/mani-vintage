@@ -135,6 +135,7 @@
   padding: 0 0.6em;
   font-weight: 400;
 }
+
 .inputField input[type="number"] {
   margin-top: 0.5em;
   width: 100%;
@@ -145,6 +146,7 @@
   border-radius: 0.1em;
   padding: 0 0.6em;
 }
+
 .inputField input[type="number"]:focus,
 .inputField input[type="email"]:focus {
   outline-color: black;

@@ -2,7 +2,7 @@ import styles from "./PageBlock.module.css";
 import TextBlock from "@components/TextBlock";
 import ImageBlock from "@components/ImageBlock";
 
-const PageBlock = ({ content }) => {
+const PageBlock = ({ content, id }) => {
   const c = content.body?.map((blockContent, i) => {
     let el = null;
     switch (blockContent._type) {
@@ -26,7 +26,11 @@ const PageBlock = ({ content }) => {
     return el;
   });
 
-  return <div className={styles.block}>{c}</div>;
+  return (
+    <div id={id} className={styles.block}>
+      {c}
+    </div>
+  );
 };
 
 export default PageBlock;

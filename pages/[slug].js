@@ -12,7 +12,13 @@ export default function About({ page }) {
       let el = null;
       switch (blockContent._type) {
         case "pageBlock":
-          el = <PageBlock key={blockContent._key} content={blockContent} />;
+          el = (
+            <PageBlock
+              key={blockContent._key}
+              content={blockContent}
+              id={blockContent.heading.split(" ").join("-").toLowerCase()}
+            />
+          );
           break;
       }
       return el;

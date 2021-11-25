@@ -21,7 +21,15 @@ const Footer = ({ footerMeny }) => {
                 {item.pageSections &&
                   item.pageSections.map((section, index) => (
                     <li key={index} className={styles.navBlockSubAnchor}>
-                      {section.heading}
+                      {/*    {section.heading} */}
+                      <Link
+                        href={`/${item.slug}#${section.heading
+                          .split(" ")
+                          .join("-")
+                          .toLowerCase()}`}
+                      >
+                        <a>{section.heading}</a>
+                      </Link>
                     </li>
                   ))}
               </ul>

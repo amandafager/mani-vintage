@@ -61,7 +61,7 @@ export default function Product({ productdata, preview, productCheckoutData }) {
   };
 
   return (
-    <PageWrapper>
+    <PageWrapper addStyles={styles.centerMe}>
       <Head>
         <title>{name} - MANI Vintage</title>
       </Head>
