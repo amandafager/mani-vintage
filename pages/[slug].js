@@ -21,7 +21,7 @@ export default function About({ page }) {
   return (
     <PageWrapper addStyles={styles.center}>
       <Head>
-        <title>{page.title}</title>
+        <title>{page.title} - MANI Vintage</title>
       </Head>
       <div className={styles.content}>{content}</div>
     </PageWrapper>

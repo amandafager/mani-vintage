@@ -63,7 +63,7 @@ export default function Product({ productdata, preview, productCheckoutData }) {
   return (
     <PageWrapper>
       <Head>
-        <title>{name}</title>
+        <title>{name} - MANI Vintage</title>
       </Head>
       <article className={styles.productPage}>
         <section className={styles.productImage}>

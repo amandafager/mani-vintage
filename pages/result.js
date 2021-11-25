@@ -8,6 +8,7 @@ import PageWrapper from "@components/PageWrapper";
 import { sanityClient } from "@lib/sanity.server";
 import { getNavigation } from "@lib/queries";
 import styles from "@styles/ResultPage.module.css";
+import Head from "next/head";
 
 export default function ResultPage() {
   const { clearCart, cartDetails } = useShoppingCart();
@@ -27,6 +28,9 @@ export default function ResultPage() {
   if (error) {
     return (
       <PageWrapper>
+        <Head>
+          <title>Mani Vintage</title>
+        </Head>
         <div>failed to load</div>;
       </PageWrapper>
     );
@@ -34,6 +38,9 @@ export default function ResultPage() {
 
   return (
     <PageWrapper>
+      <Head>
+        <title>Mani Vintage</title>
+      </Head>
       <div className={styles.orderConfirm}>
         <h1>Succsess, your order has been placed!</h1>
         <h2>

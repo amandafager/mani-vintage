@@ -1,7 +1,8 @@
 .h1 {
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.7rem;
   font-weight: 500;
   font-size: 1.7rem;
   border-bottom: 1px solid black;
+  line-height: 1.4rem;
 }

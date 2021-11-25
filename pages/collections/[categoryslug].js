@@ -18,7 +18,7 @@ export default function Products({ productsByCategory }) {
   return (
     <PageWrapper>
       <Head>
-        <title>{productsByCategory.title}</title>
+        <title>{productsByCategory.title} - MANI Vintage</title>
       </Head>
       <h1 className={styles.h1}>{productsByCategory.title}</h1>
 
