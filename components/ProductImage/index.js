@@ -10,12 +10,8 @@ const ProductImage = ({ url, alt, name, sizes }) => {
     <div className={styles.imageWrapper}>
       <Image
         className={styles.image}
-        /* {...imageProps} */
         src={imageProps.src}
         layout='fill'
-        /* src={imageProps.src} */
-        /* loader={imageProps.loader} */
-        /*    layout='responsive' */
         sizes={sizes}
         alt={alt ? alt : name}
       />

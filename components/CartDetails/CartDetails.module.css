@@ -48,3 +48,26 @@
   text-align: center;
   font-weight: 600;
 }
+
+.imageWrapper {
+  aspect-ratio: 3 / 4;
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+}
+
+@supports not (aspect-ratio: 3 / 4) {
+  .imageWrapper::before {
+    float: left;
+    padding-top: 133%;
+    content: "";
+  }
+
+  .imageWrapper::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
