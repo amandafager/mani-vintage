@@ -2,7 +2,7 @@ import PageWrapper from "@components/PageWrapper";
 import CartSummary from "@components/CartSummary";
 import Head from "next/head";
 import styles from "@styles/Cart.module.css";
-import { getAllCategories, getNavigation } from "@lib/queries";
+import { getNavigation } from "@lib/queries";
 import { sanityClient } from "@lib/sanity.server";
 
 export default function CartPage() {
@@ -18,12 +18,10 @@ export default function CartPage() {
 }
 
 export async function getStaticProps() {
-  const categories = await sanityClient.fetch(getAllCategories);
   const navigation = await sanityClient.fetch(getNavigation);
 
   return {
     props: {
-      categories,
       navigation,
     },
   };

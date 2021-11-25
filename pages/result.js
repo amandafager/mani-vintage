@@ -7,6 +7,7 @@ import { useShoppingCart } from "use-shopping-cart";
 import PageWrapper from "@components/PageWrapper";
 import { sanityClient } from "@lib/sanity.server";
 import { getNavigation } from "@lib/queries";
+import styles from "@styles/ResultPage.module.css";
 
 export default function ResultPage() {
   const { clearCart, cartDetails } = useShoppingCart();
@@ -24,25 +25,28 @@ export default function ResultPage() {
   useEffect(() => clearCart(), [clearCart]);
 
   if (error) {
-    return <div>failed to load</div>;
+    return (
+      <PageWrapper>
+        <div>failed to load</div>;
+      </PageWrapper>
+    );
   }
 
   return (
     <PageWrapper>
-      <div className='page-container'>
-        Congrats
-        <h1>Checkout Payment Result</h1>
-        <h3>
-          Thank you, {data?.payment_intent.charges.data[0].billing_details.name}
-          .
-        </h3>
+      <div className={styles.orderConfirm}>
+        <h1>Succsess, your order has been placed!</h1>
+        <h2>
+          Thank you for shopping with us,{" "}
+          {data?.payment_intent.charges.data[0].billing_details.name}.
+        </h2>
         <p>
-          Confirmation email sent to{" "}
+          Confirmation email will be sent to{" "}
           {data?.payment_intent.charges.data[0].billing_details.email}.
         </p>
-        <hr />
+        {/*
         <h2>Status: {data?.payment_intent?.status ?? "loading..."}</h2>
-        {/*  <h3>CheckoutSession response:</h3>
+         <h3>CheckoutSession response:</h3>
         <PrintObject content={data ?? "loading..."} /> */}
       </div>
     </PageWrapper>
