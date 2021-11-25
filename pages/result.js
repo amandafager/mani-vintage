@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
 import useSWR from "swr";
 import PrintObject from "@components/PrintObject";
 import { fetchGetJSON } from "../utils/apiHelpers";
@@ -12,8 +11,7 @@ import { getNavigation } from "@lib/queries";
 export default function ResultPage() {
   const { clearCart, cartDetails } = useShoppingCart();
   const router = useRouter();
-  // Fetch CheckoutSession from static page via
-  // https://nextjs.org/docs/basic-features/data-fetching#static-generation
+
   const { data, error } = useSWR(
     router.query.session_id
       ? `/api/checkout_sessions/${router.query.session_id}`
@@ -21,10 +19,8 @@ export default function ResultPage() {
     fetchGetJSON
   );
 
-  //console.log(data);
-
   console.log(data?.line_items.data[0].price.product.metadata.id);
-  //console.log(data?.line_items);
+
   useEffect(() => clearCart(), [clearCart]);
 
   if (error) {

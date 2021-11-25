@@ -7,7 +7,7 @@ import InputField from "@components/InputField";
 import Modal from "@components/Modal";
 import Button from "@components/Button";
 import PageWrapper from "@components/PageWrapper";
-import { getAllCategories, getNavigation } from "@lib/queries";
+import { getNavigation } from "@lib/queries";
 import { sanityClient } from "@lib/sanity.server";
 
 import { categories, sizes, needInTime, measures } from "@utils/data";
@@ -37,19 +37,12 @@ export default function Form() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
     reset,
-    getValues,
   } = useForm({
     mode: "onBlur",
     reValidateMode: "onChange" | "onBlur",
     resolver: yupResolver(schema),
   });
-
-  const onTest = (data) => {
-    console.log(data);
-    console.log("Sending");
-  };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -115,9 +108,7 @@ export default function Form() {
         <div className={styles.textareaFormGroup}>
           <textarea
             id='description'
-            /*  title='Type a description of what you are searching for: decade, style, color' */
             className={styles.textarea}
-            /*     placeholder='enter description here: decade, style, color etc' */
             {...register("description")}
             onChange={(e) => {
               setHasDescription(e.target.value);
@@ -196,27 +187,20 @@ export default function Form() {
             required
             type='email'
             error={errors.email?.message}
-            /*    placeholder='Email' */
           />
         </div>
 
         <Button text='Send request' type='submit' />
-
-        {/*  <button className={styles.requestButton} type='submit'>
-          Send request
-        </button> */}
       </form>
     </PageWrapper>
   );
 }
 
 export async function getStaticProps() {
-  const categories = await sanityClient.fetch(getAllCategories);
   const navigation = await sanityClient.fetch(getNavigation);
 
   return {
     props: {
-      categories,
       navigation,
     },
   };

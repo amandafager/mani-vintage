@@ -43,7 +43,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context, preview = false) {
   const categoryslug = context.params.categoryslug;
-  let productsToReturn;
 
   const productsByCategorySlug = await getClient(preview).fetch(
     getProductsByCategorySlugQuery,
@@ -52,18 +51,25 @@ export async function getStaticProps(context, preview = false) {
     }
   );
 
-  productsToReturn = productsByCategorySlug[0];
+  const productsToReturn = productsByCategorySlug[0];
 
-  const categories = await sanityClient.fetch(getAllCategories);
   const navigation = await sanityClient.fetch(getNavigation);
+
+  if (!productsToReturn) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
       productsByCategory: productsToReturn,
       preview,
-      categories,
       navigation,
     },
-    revalidate: 60,
+    revalidate: 1,
   };
 }

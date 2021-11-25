@@ -4,29 +4,26 @@
   top: 55px;
   padding-left: 2rem;
 }
-
 .navGroup:not(:last-of-type) {
   margin-bottom: 1.4em;
 }
-
 .navGroup {
   display: flex;
   flex-direction: column;
 }
-
 .navGroup > * {
   padding: 0.37rem 0;
   text-transform: uppercase;
   font-weight: bold;
+}
+.navGroup a:first-child {
+  padding-top: 0;
 }
 
 @media (min-width: 1025px) {
   .navSidebar {
     padding-left: 4rem;
     padding-top: 0rem;
-    /* top: 40px; */
     width: 250px;
-    /*  position: sticky;
-  height: fit-content; */
   }
 }

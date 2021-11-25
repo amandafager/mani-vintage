@@ -9,6 +9,7 @@ const Header = ({ handleToggle, navbarOpen, mainMeny, collectionMeny }) => {
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const { cartCount } = useShoppingCart();
+  const [loaded, setLoaded] = useState(true);
 
   const callbackFunction = (entries) => {
     const [entry] = entries;
@@ -21,7 +22,21 @@ const Header = ({ handleToggle, navbarOpen, mainMeny, collectionMeny }) => {
     threshold: 1.0,
   };
 
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isPageLoaded, setIsPageLoaded] = useState(false); //this helps
+
   useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded) {
+      setIsPageLoaded(true);
+    }
+  }, [isLoaded]);
+
+  useEffect(() => {
+    /* window.addEventListener("load", setLoaded(false)); */
     const observer = new IntersectionObserver(callbackFunction, options);
     if (containerRef.current) observer.observe(containerRef.current);
 
@@ -60,7 +75,7 @@ const Header = ({ handleToggle, navbarOpen, mainMeny, collectionMeny }) => {
           </div>
           <div
             className={`${styles.scrollLogo} ${
-              isVisible ? styles.fadeOut : styles.fadeInLogo
+              isVisible ? "" /* styles.fadeOut */ : styles.fadeInLogo
             }`}
           >
             <Link href='/'>

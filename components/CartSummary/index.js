@@ -54,8 +54,6 @@ const CartSummary = () => {
     const { error } = await stripe.redirectToCheckout({
       sessionId: response.checkoutSession.id,
     });
-
-    //redirectToCheckout({ sessionId: response.id });
   };
 
   return (
@@ -65,7 +63,6 @@ const CartSummary = () => {
           <h1 className={styles.heading}>Shopping bag</h1>
           <CartDetails />
         </section>
-
         <section className={styles.cartSection}>
           <h2 className={styles.heading}>Bag total</h2>
           <form onSubmit={handleCheckout}>
@@ -88,7 +85,6 @@ const CartSummary = () => {
               type='submit'
               disabled={cartEmpty || loading}
             />
-            {/* <Button text='Clear Cart' type='button' onClick={clearCart} /> */}
           </form>
         </section>
       </div>

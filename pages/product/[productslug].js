@@ -1,58 +1,25 @@
-import Link from "next/link";
 import Head from "next/head";
 import PageWrapper from "@components/PageWrapper";
-import ProductCard from "@components/ProductCard";
-import Grid from "@components/Grid";
 import BlockContent from "@sanity/block-content-to-react";
-import { serializers } from "../../lib/sanity";
-import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import React, { useState, useEffect, useRef } from "react";
 import Button from "@components/Button";
 import ProductImage from "@components/ProductImage";
-
-import { useNextSanityImage } from "next-sanity-image";
-
 import { useRouter } from "next/router";
-
-import { fetchPostJSON } from "../../utils/apiHelpers";
-
-import {
-  getClient,
-  sanityClient,
-  sanityClientUpdate,
-} from "@lib/sanity.server";
-
+import { getClient, sanityClient } from "@lib/sanity.server";
 import {
   GetAllProductsSlugs,
   GetSingleProduct,
   GetAllProductsForCartById,
-  getAllCategories,
   getNavigation,
 } from "@lib/queries";
-
-import { usePreviewSubscription, urlFor, PortableText } from "../../lib/sanity";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-import {
-  setItemQuantity,
-  useShoppingCart,
-  formatCurrencyString,
-} from "use-shopping-cart";
-import CartSummary from "@components/CartSummary";
+import { usePreviewSubscription } from "../../lib/sanity";
+import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
 
 export default function Product({ productdata, preview, productCheckoutData }) {
   const { addItem, cartDetails } = useShoppingCart();
-
   const [addedToCart, setAddedToCart] = useState(false);
   const [notInStock, setNotInStock] = useState(false);
-
-  /*   const imageProps = useNextSanityImage(sanityClient, image); */
   const router = useRouter();
 
   const { data: product = {} } = usePreviewSubscription(GetSingleProduct, {
@@ -64,9 +31,7 @@ export default function Product({ productdata, preview, productCheckoutData }) {
   useEffect(() => {
     for (const id in cartDetails) {
       const entry = cartDetails[id];
-
       if (entry.id === product.id) setAddedToCart(true);
-
       if (entry.id === product.id && product.quantity <= entry.quantity) {
         setNotInStock(true);
         return;
@@ -87,9 +52,7 @@ export default function Product({ productdata, preview, productCheckoutData }) {
 
   const handleAddToCart = async (event) => {
     event.preventDefault();
-
     if (notInStock) return;
-
     if (product.available) {
       addItem(productCheckoutData, {
         product_metadata: { id: product.id },
@@ -118,7 +81,6 @@ export default function Product({ productdata, preview, productCheckoutData }) {
             {formatCurrencyString({
               value: price,
               currency: "SEK",
-              language: "se-SV",
             })}
           </p>
 
@@ -162,47 +124,6 @@ export default function Product({ productdata, preview, productCheckoutData }) {
           <p>{addedToCart && "Product is added to cart"}</p>
         </section>
       </article>
-
-      {/*  <div className={styles.swiperWrapper}>
-        <Swiper
-          className={styles.swiper}
-          modules={[Navigation, Pagination, Scrollbar]}
-          spaceBetween={0}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
-        >
-          {product.imagesGallery &&
-            product.imagesGallery.map((image, index) => (
-              <SwiperSlide key={index} className={styles.slide}>
-                <div className={styles.imageWrapper}>
-                  <Image
-                    className={styles.image}
-                    src={image.url}
-                    layout='fill'
-                    alt={image.imageAlt}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-        </Swiper>
-      </div> */}
-
-      {/*  <Image
-        key={image._key}
-        {...useNextSanityImage(sanityClient, image)}
-        loader={useNextSanityImage(sanityClient, image).loader}
-        layout='intrinsic'
-        alt={image.attribution ? image.attribution : product.title}
-      /> */}
-
-      {/* <Image
-        src={product.imageUrl}
-        width={412}
-        height={557}
-        alt={product.imageAlt}
-      /> */}
     </PageWrapper>
   );
 }
@@ -236,17 +157,24 @@ export async function getStaticProps(context, preview = false) {
     }
   );
 
-  const categories = await sanityClient.fetch(getAllCategories);
   const navigation = await sanityClient.fetch(getNavigation);
+
+  if (!productdata || !productCheckoutData) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
       productdata,
       preview,
       productCheckoutData,
-      categories,
       navigation,
     },
-    revalidate: 60,
+    revalidate: 1,
   };
 }

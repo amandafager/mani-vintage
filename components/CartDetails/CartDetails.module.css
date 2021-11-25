@@ -5,18 +5,12 @@
   padding-bottom: 01em;
   border-bottom: 1px solid black;
 }
-
 .imageWrapper {
-  /*  aspect-ratio: 3 / 4; */
   width: 100%;
   max-width: 180px;
   height: 100%;
   position: relative;
 }
-/* .image {
-  object-fit: cover;
-} */
-
 .productInfo {
   position: relative;
   display: flex;
@@ -25,19 +19,17 @@
   padding: 1.5em 0;
   width: 80%;
 }
-
 .productInfo > * {
   padding: 0.5em 0.2em 0.2em 0.2em;
 }
-
 .price {
   font-weight: 500;
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 0;
+  text-transform: uppercase;
 }
-
 .removeProduct {
   border: 0;
   background-color: transparent;
@@ -48,7 +40,6 @@
   border: 0.1em solid black;
   cursor: pointer;
 }
-
 .noItems {
   border: 1px solid black;
   margin: 1em 0;

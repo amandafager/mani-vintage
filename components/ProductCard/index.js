@@ -26,35 +26,18 @@ const ProductCard = ({ product }) => {
         passHref
       >
         <a>
-          {/* <div className={styles.imageWrapper}> */}
           <ProductImage
             url={image}
             name={name}
             sizes='(max-width: 500px) 100vw, 500px'
           />
-          {/*  <Image
-              className={styles.image}
-              {...imageProps}
-              src={imageProps.src}
-              loader={imageProps.loader}
-              layout='responsive'
-              sizes='(max-width: 500px) 100vw, 500px'
-            /> */}
-          {/*   <Image
-              className={styles.image}
-              src={imageUrl}
-              layout='fill'
-              sizes='50vw'
-              alt={imageAlt ? imageAlt : name}
-            /> */}
-          {/* </div> */}
+
           <div className={styles.contentWrapper}>
             <h3 className={styles.title}>{name}</h3>
             <p className={styles.price}>
               {formatCurrencyString({
                 value: price,
                 currency: "SEK",
-                //language: "sv-SV",
               })}
             </p>
           </div>

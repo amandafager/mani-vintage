@@ -18,19 +18,10 @@ const CartDetails = () => {
             alt={entry.name}
             name={entry.name}
           />
-          {/*  <Image
-            className={styles.image}
-            src={entry.image}
-            layout='fill'
-            sizes='20vw'
-            alt={entry.name}
-          /> */}
         </div>
         <section className={styles.productInfo}>
           <p>{entry.name}</p>
           <p className={styles.price}>{entry.formattedValue}</p>
-
-          {/* Removes the item from the cart */}
           <button
             className={styles.removeProduct}
             onClick={() => removeItem(id)}

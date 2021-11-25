@@ -72,6 +72,7 @@ export default async function handler(req, res) {
 
         console.log("products: " + li.price.product.metadata.id);
       });
+      res.status(200).json(line_items);
     } else if (event.type === "charge.succeeded") {
       const charge = event.data.object;
       console.log(`💵 Charge id: ${charge.id}`);

@@ -9,7 +9,6 @@
   border: none;
   cursor: pointer;
 }
-
 .button:disabled {
   background-color: rgb(116, 116, 116);
   color: rgb(194, 194, 194);

@@ -3,13 +3,13 @@ import PageWrapper from "@components/PageWrapper";
 import React, { useState, useEffect, useRef } from "react";
 import styles from "@styles/Home.module.css";
 import { sanityClient } from "@lib/sanity.server";
-import { getAllCategories, getNavigation, getLandingPage } from "@lib/queries";
+import { getNavigation, getLandingPage } from "@lib/queries";
 import { useNextSanityImage } from "next-sanity-image";
 import Image from "next/image";
 import ProductCard from "@components/ProductCard";
 import Grid from "@components/Grid";
 
-export default function Home({ landingPage }) {
+export default function Home({ landingPage, products }) {
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -45,7 +45,7 @@ export default function Home({ landingPage }) {
       </div>
 
       <Grid>
-        {landingPage.products.map((product) => (
+        {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
       </Grid>
@@ -54,16 +54,30 @@ export default function Home({ landingPage }) {
 }
 
 export async function getStaticProps() {
-  const categories = await sanityClient.fetch(getAllCategories);
   const navigation = await sanityClient.fetch(getNavigation);
   const landingPage = await sanityClient.fetch(getLandingPage);
 
+  const products = landingPage.products.filter(
+    (product) => product.available === true
+  );
+
+  delete landingPage.products;
+
+  if (!products) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
-      categories,
       navigation,
       landingPage,
+      products,
     },
-    revalidate: 60,
+    revalidate: 1,
   };
 }

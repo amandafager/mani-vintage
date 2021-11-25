@@ -29,7 +29,6 @@ const Footer = ({ footerMeny }) => {
 
           <a href='mailto:info@manivintage.com'>info@manivintage.com</a>
         </div>
-
         <div className={styles.social}>
           <a
             href='https://www.facebook.com/pages/category/Vintage-Store/MANI-193061684078267/'

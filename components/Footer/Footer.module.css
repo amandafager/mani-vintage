@@ -2,7 +2,6 @@
   width: 100%;
   position: relative;
 }
-
 .footerContent {
   padding: 2rem 1rem 2rem 1rem;
   display: flex;
@@ -12,50 +11,42 @@
   gap: 2em;
   width: 100%;
 }
-
 .lineDecoration {
   width: 100%;
   border-top: 1px solid black;
 }
-
 .navigation {
   width: fit-content;
   gap: 1.5em;
   display: flex;
   flex-direction: column;
 }
-
 .navBlock {
   list-style: none;
   padding: 0;
   height: 100%;
   width: fit-content;
 }
-
 .navBlockAnchor {
   font-size: 1em;
   padding: 0.3em 0;
   font-weight: bold;
   text-transform: uppercase;
 }
-
 .navBlockSubAnchor {
   font-size: 0.9em;
   font-weight: 600;
   padding: 0.3em 0;
 }
-
 .description {
   font-size: 0.8em;
   max-width: 300px;
   line-height: 1.3em;
 }
-
 .social {
   display: flex;
   gap: 1em;
 }
-
 .social > * {
   cursor: pointer;
 }
@@ -73,11 +64,9 @@
     position: absolute;
     padding: 0 2em;
   }
-
   .footerContent {
     padding: 2rem;
   }
-
   .navigation {
     gap: 6em;
   }
@@ -89,7 +78,6 @@
     justify-content: flex-start;
     gap: 6em;
   }
-
   .social {
     gap: 1.2em;
   }
