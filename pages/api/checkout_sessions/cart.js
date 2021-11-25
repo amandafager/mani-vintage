@@ -67,7 +67,7 @@ export default async function handler(req, res) {
         //The validated cart items are inserted.
         line_items,
         success_url: `${req.headers.origin}/result?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.origin}/?canceled=true`,
+        cancel_url: `${req.headers.origin}/cart/?canceled=true`,
         expires_at: Math.floor(Date.now() / 1000) + 3600 * 2, // Configured to expire after 2 hours
       };
       const checkoutSession = await stripe.checkout.sessions.create(params);

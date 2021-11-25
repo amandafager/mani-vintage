@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
           <ProductImage
             url={image}
             name={name}
-            sizes='20vw'
+            sizes='50vw'
             /*  sizes='(max-width: 500px) 100vw, 500px' */
           />
 

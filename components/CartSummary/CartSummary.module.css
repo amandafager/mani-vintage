@@ -2,7 +2,7 @@
   width: 100%;
 }
 .cartSummary > *:not(:last-child) {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 .heading {
   margin-bottom: 0em;

@@ -71,3 +71,15 @@
     clear: both;
   }
 }
+
+@media (min-width: 768px) {
+  .imageWrapper {
+    max-width: 174px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .imageWrapper {
+    max-width: 180px;
+  }
+}
