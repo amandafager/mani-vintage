@@ -20,7 +20,7 @@ const CartDetails = () => {
           /> */}
           <Image
             className={styles.image}
-            src={entry.image}
+            src={`${entry.image}?w=350`}
             layout='fill'
             sizes='20vw'
             alt={entry.name}

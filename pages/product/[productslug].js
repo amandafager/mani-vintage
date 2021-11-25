@@ -60,6 +60,8 @@ export default function Product({ productdata, preview, productCheckoutData }) {
     }
   };
 
+  console.log(size);
+
   return (
     <PageWrapper>
       <Head>
@@ -74,7 +76,6 @@ export default function Product({ productdata, preview, productCheckoutData }) {
             sizes={"(max-width: 500px) 100vw, 500px"}
           />
         </section>
-
         <section className={styles.productInfo}>
           <h1>{name}</h1>
           <p className={styles.price}>
@@ -83,7 +84,6 @@ export default function Product({ productdata, preview, productCheckoutData }) {
               currency: "SEK",
             })}
           </p>
-
           {description && (
             <BlockContent
               blocks={description}
@@ -91,7 +91,6 @@ export default function Product({ productdata, preview, productCheckoutData }) {
               className={styles.description}
             />
           )}
-
           {size && (
             <BlockContent
               blocks={size}
@@ -99,23 +98,23 @@ export default function Product({ productdata, preview, productCheckoutData }) {
               className={styles.size}
             />
           )}
-
-          <p className={styles.detail}>
-            Material:
-            {material &&
-              material.map((item, index) => (
+          {material && (
+            <p className={styles.detail}>
+              Material:
+              {material.map((item, index) => (
                 <span key={index}>{item.material}</span>
               ))}
-          </p>
-
-          <p className={styles.detail}>
-            Color:
-            {color &&
-              color.map((item, index) => <span key={index}>{item.color}</span>)}
-          </p>
-
-          <p>Condition: {condition}</p>
-
+            </p>
+          )}
+          {color && (
+            <p className={styles.detail}>
+              Color:
+              {color.map((item, index) => (
+                <span key={index}>{item.color}</span>
+              ))}
+            </p>
+          )}
+          {condition && <p>Condition: {condition}</p>}
           <Button
             text='Add to cart'
             onClick={(e) => handleAddToCart(e)}

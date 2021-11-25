@@ -46,8 +46,15 @@
   border-bottom: 1px solid black;
   padding-bottom: 0.5em;
   text-transform: uppercase;
+  font-size: 1.1rem;
 }
 
+.productInfo ul {
+  list-style: circle;
+}
+.productInfo ul li {
+  padding-bottom: 0.4em;
+}
 .size > * {
   margin-bottom: 0.8em;
 }
