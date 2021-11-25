@@ -60,8 +60,6 @@ export default function Product({ productdata, preview, productCheckoutData }) {
     }
   };
 
-  console.log(size);
-
   return (
     <PageWrapper>
       <Head>
