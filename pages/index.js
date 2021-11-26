@@ -13,7 +13,7 @@ export default function Home({ landingPage, products }) {
   return (
     <PageWrapper addStyles={styles.landingPage}>
       <Head>
-        <title>Mani Vintage</title>
+        <title>MANI Vintage</title>
         <meta
           name='description'
           content='MANI is a Malmö, Sweden based vintage store. Each item is carefully selected for its unique presentation and history. MANI clothing has had a previous life, now waiting for the right individual to carry it into the future.'
